@@ -19,6 +19,11 @@
             setTimeout(() => {
                 this.nome = 'Pedro'
             }, 2000)
+        },
+        methods: {
+            lifeCicle() {
+                
+            }
         }
     }
 </script>

@@ -8,9 +8,12 @@
         <li>javascript</li>
         <li>mysql</li>
     </ul>
+    <div>
+        <button @click="showEmail">{{ texto_botao }}</button>
+    </div>
     <p v-show="mostrar_email">mande uma mensagem para {{ email }}</p>
     <p>para acessar meu portifolio <a target="_blank" v-bind:href="meu_link">basta clicar aqui</a></p>
-    <Picture />
+    <Picture></Picture>
 </template>
 
 <script>
@@ -21,12 +24,23 @@
             return {
                 esta_trabalhando: false,
                 email: 'guilopesdev@gmail.com',
-                mostrar_email: true,
+                mostrar_email: false,
+                texto_botao: 'Mostrar email',
                 meu_link: 'https://github.com/guilopes2020/'
             }
         },
         components: {
             Picture
+        },
+        methods: {
+            showEmail() {
+                this.mostrar_email = !this.mostrar_email
+                if (! this.mostrar_email) {
+                    this.texto_botao = 'Mostrar email'
+                } else {
+                    this.texto_botao = 'Esconder email'
+                }
+            }
         }
     }
 </script>
