@@ -1,12 +1,13 @@
 <template>
     <p v-if="esta_trabalhando">estou trabalhando no momento</p>
     <p v-else>estou em busca de novas oportunidades</p>
-    <p>ultilizo as seguintes tecnologias:</p>
+    <p>ultilizo as seguintes tecnologias back-end:</p>
     <ul>
-        <li>PHP</li>
-        <li>Mysql</li>
-        <li>javascript</li>
-        <li>mysql</li>
+        <li v-for="(tecnologia, index) in tecnologias_backend" v-bind:key="index">{{ tecnologia }}</li>
+    </ul>
+    <p>ultilizo as seguintes tecnologias front-end:</p>
+    <ul>
+        <li v-for="tecnologia in tecnologias_frontend" :key="tecnologia.id">{{ tecnologia.language }}</li>
     </ul>
     <div>
         <button @click="showEmail">{{ texto_botao }}</button>
@@ -26,7 +27,17 @@
                 email: 'guilopesdev@gmail.com',
                 mostrar_email: false,
                 texto_botao: 'Mostrar email',
-                meu_link: 'https://github.com/guilopes2020/'
+                meu_link: 'https://github.com/guilopes2020/',
+                tecnologias_backend: [
+                    'javascript',
+                    'php',
+                    'mysql'
+                ],
+                tecnologias_frontend: [
+                    {id: 1, language: 'HTML'},
+                    {id: 2, language: 'CSS'},
+                    {id: 3, language: 'Vue'}
+                ]
             }
         },
         components: {
