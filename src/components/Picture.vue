@@ -1,14 +1,29 @@
 <template>
     <img :src="avatar" :alt="descricao">
+    <MudarImagem @mudar-imagem="MudarImagem" />
 </template>
 
 <script>
+import MudarImagem from './MudarImagem.vue'
     export default {
+  components: { MudarImagem },
         name: 'Picture',
         data() {
             return {
                 avatar: '/img/avatar.jpeg',
                 descricao: 'Guilherme Lopes'
+            }
+        },
+        methods: {
+            MudarImagem() {
+
+                // this.avatar = '/img/burger.jpg'
+
+                if (this.avatar != '/img/avatar.jpeg') {
+                    this.avatar = '/img/avatar.jpeg'
+                } else {
+                    this.avatar = '/img/burger.jpg'
+                }
             }
         }
     }
