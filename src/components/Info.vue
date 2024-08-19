@@ -21,10 +21,12 @@
     import Picture from './Picture.vue'
     export default {
         name: 'Info',
+        props: {
+            email: String,
+            esta_trabalhando: Boolean
+        },
         data() {
             return {
-                esta_trabalhando: false,
-                email: 'guilopesdev@gmail.com',
                 mostrar_email: false,
                 texto_botao: 'Mostrar email',
                 meu_link: 'https://github.com/guilopes2020/',
